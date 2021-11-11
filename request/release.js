@@ -14,7 +14,7 @@ export function release(baseUrl) {
         });
         let bodySignToJwsRelease = JSON.parse(SignToJwsRelease.body);
         let bodySignRelease =  bodySignToJwsRelease['data'];
-        if (SignToJwsRelease.status !=200){console.log('!!!ALARM WARNING УВАГА :   '+bodySignToJwsRelease['message']+ '' +
+        if (SignToJwsRelease.status !==200){console.log('!!!ALARM WARNING УВАГА :   '+bodySignToJwsRelease['message']+ '' +
             '       !!!RESPONSE STATUS:  ' +bodySignToJwsRelease.status);}
         //console.log(JSON.stringify(bodySignToJwsRelease));
         //console.log(JSON.stringify(bodySignRelease));
@@ -28,7 +28,7 @@ export function release(baseUrl) {
         check(registerRelease, {
             'http response registerRelease status code is 200': r => r.status === 200,
         });
-        if (registerRelease.status !=200){console.log('!!!ALARM WARNING УВАГА :   '+bodyRelease+ '' +
+        if (registerRelease.status !==200){console.log('!!!ALARM WARNING УВАГА :   '+bodyRelease+ '' +
             '       !!!RESPONSE STATUS:  ' +registerRelease.status);}
         sleep(1);
     });

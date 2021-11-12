@@ -5,8 +5,8 @@ import { prescriptionList } from "./request/getList.js";
 import { scenario } from "./scenario.js";
 
 
-const baseUrl = 'http://192.168.7.238/dev/erp/erpApi';
-//const baseUrl = 'http://192.168.7.44:56749/demo/erp/erpApi';
+//const baseUrl = 'http://192.168.7.238/dev/erp/erpApi';
+const baseUrl = 'http://192.168.7.44:56749/demo/erp/erpApi';
 
 export const options = scenario;
 

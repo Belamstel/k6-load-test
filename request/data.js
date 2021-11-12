@@ -7,7 +7,7 @@ function guid() {
 }
 export const bodyReleaseToSign = "{" +
     "  \"LocalUid\": \""+guid()+"\"," +
-    "  \"PrescriptionUid\": \"9cb0946e-2003-ec11-a9ff-001a648cddb4\"," +
+    "  \"PrescriptionUid\": \"779ec084-d564-4cb1-ac56-5a2a93c13475\"," +
     "  \"Date\": \"2021-09-24T14:11:14.6568597+03:00\"," +
     "  \"Organization\": {" +
     "    \"ShortName\": \"АПТЕКА ОГБУЗ \\\"БЕЛГОРОДСКАЯ ЦРБ\\\"\"," +

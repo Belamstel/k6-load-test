@@ -13,6 +13,6 @@ export const options = scenario;
 export default function () {
 
     prescription(baseUrl);
-    prescriptionList(baseUrl)
-    release(baseUrl);
+    //prescriptionList(baseUrl)
+    //release(baseUrl);
 }

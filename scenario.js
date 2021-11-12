@@ -26,6 +26,7 @@ export const scenario = {
             preAllocatedVUs: 10,
             stages: [
                 { target: 50, duration: '180s' },
+                /*
                 { target: 50, duration: '900s' },
                 { target: 100, duration: '180s' },
                 { target: 100, duration: '900s' },
@@ -34,6 +35,8 @@ export const scenario = {
                 { target: 200, duration: '180s' },
                 { target: 200, duration: '7200s' },
                 { target: 0, duration: '180s' }
+
+                 */
             ],
         },
     },

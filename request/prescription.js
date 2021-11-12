@@ -2,6 +2,7 @@ import { check, sleep } from "k6";
 import http from "k6/http";
 import { group } from 'k6';
 
+/*
 function guid() {
     function _p8(s) {
         var p = (Math.random().toString(16)+"000000000").substr(2,8);
@@ -9,9 +10,17 @@ function guid() {
     }
     return _p8() + _p8(true) + _p8(true) + _p8();
 }
+
+ */
+function guid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
 const bodyPrescriptionToSign = '{' +
     '\"uid\": \"'+guid()+'\",' +
-    '\"prescribedMedicationGuid\": \"850ab421-3173-418c-bb5e-9da72f1cac86\",' +
+    '\"prescribedMedicationGuid\": \"779ec084-d564-4cb1-ac56-5a2a93c13475\",' +
     '\"series\": \"T1421\",' +
     '\"number\": \"1001953\",' +
     '\"dateCreate\": \"2021-09-02T16:01:11+04:00\",' +
@@ -105,7 +114,7 @@ export function prescription(baseUrl) {
         });
     let bodySignToJwsPrescription = JSON.parse(SignToJwsPrescription.body);
     let bodySign =  bodySignToJwsPrescription['data'];
-    if (SignToJwsPrescription.status !=200){console.log('!!!ALARM WARNING УВАГА :   '+bodySign['message']+ '' +
+    if (SignToJwsPrescription.status !==200){console.log('!!!ALARM WARNING УВАГА :   '+bodySign['message']+ '' +
         '      !!!RESPONSE STATUS:  ' +SignToJwsPrescription.status);}
     //console.log(JSON.stringify(bodySignToJwsPrescription));
     //console.log(JSON.stringify(bodySign));
@@ -119,7 +128,7 @@ export function prescription(baseUrl) {
         check(newPrescription, {
             'http response newPrescription status code is 200': r => r.status === 200,
         });
-        if (newPrescription.status !=200){console.log('!!!ALARM WARNING УВАГА :   '+newPrescription+ '' +
+        if (newPrescription.status !==200){console.log('!!!ALARM WARNING УВАГА :   '+bodyPrescription+ '' +
             '      !!!RESPONSE STATUS:  ' +newPrescription.status);}
     sleep(1);
     });

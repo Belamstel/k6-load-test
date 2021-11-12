@@ -1,9 +1,16 @@
+/*
 function guid() {
     function _p8(s) {
         var p = (Math.random().toString(16)+"000000000").substr(2,8);
         return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
     }
     return _p8() + _p8(true) + _p8(true) + _p8();
+}
+*/
+function guid() {
+    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+        (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+    )
 }
 export const bodyReleaseToSign = "{" +
     "  \"LocalUid\": \""+guid()+"\"," +
